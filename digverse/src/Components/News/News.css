@@ -1,0 +1,128 @@
+.all_news_container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.all_news_container_skeleton {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.single_news_container_skeleton {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.single_news_skeleton {
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--btn-border-radius);
+  border: 3px solid var(--new-container);
+}
+
+.single_news_container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.single_news {
+  box-sizing: border-box;
+  padding: 30px;
+  margin-top: 20px;
+  background-color: var(--new-container);
+  display: flex;
+  align-items: center;
+  border-radius: var(--btn-border-radius);
+  box-shadow: 0 0 15px var(--new-container);
+}
+
+.single_news:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--main-accent-color-dark);
+}
+
+.single_news_description {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.single_news_description img {
+  float: right;
+  border-radius: 50%;
+}
+
+.single_news_description aside {
+  display: flex;
+  gap: 30px;
+}
+
+.single_news_description aside li {
+  color: var(--main-accent-color-dark);
+}
+
+.single_news_description aside li a:link,
+a:active,
+a:visited {
+  color: var(--main-accent-color-dark);
+  text-decoration: none;
+}
+
+.single_news_description aside li a:hover {
+  color: white;
+}
+
+#search_news {
+  border-top-left-radius: var(--btn-border-radius);
+  border-bottom-left-radius: var(--btn-border-radius);
+  width: 100%;
+  background-color: var(--new-container);
+  height: 30px;
+  border: none;
+  padding-left: 5px;
+  color: var(--main-text-color-dark);
+}
+
+#search_news::placeholder {
+  color: var(--main-accent-color-dark);
+  background-color: var(--new-container);
+}
+
+#search_news:focus,
+#search_news:active {
+  border: none;
+  outline: none;
+}
+
+.searchbar {
+  display: flex;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.fa-magnifying-glass {
+  background-color: white;
+  color: var(--main-accent-color-dark);
+  padding: 6px;
+  border-top-right-radius: var(--btn-border-radius);
+  border-bottom-right-radius: var(--btn-border-radius);
+  background-color: var(--new-container);
+}

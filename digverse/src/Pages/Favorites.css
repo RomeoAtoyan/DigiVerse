@@ -1,0 +1,27 @@
+.favorite_coin_container {
+  width: 90%;
+  height: 75vh;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.favorite_coin {
+  text-align: center;
+  width: 250px;
+  background-color: var(--new-container);
+  box-shadow: 0 0 20px black;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--btn-border-radius);
+}
+
+.favorite_coin:hover {
+  box-shadow: 0 0 20px var(--main-accent-color-dark);
+  transform: translateY(-5px);
+}

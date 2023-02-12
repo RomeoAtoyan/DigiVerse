@@ -1,0 +1,96 @@
+.login_container {
+  width: 70%;
+  height: 600px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: var(--btn-border-radius);
+}
+
+.login_container_supabase {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left_section {
+  width: 50%;
+  height: 100%;
+  background-image: url(https://images.pexels.com/photos/2469122/pexels-photo-2469122.jpeg?cs=srgb&dl=astronomy-exploration-free-wallpaper-2469122.jpg&fm=jpg);
+  background-position: center;
+  background-size: cover;
+  opacity: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: var(--btn-border-radius);
+  border-top-left-radius: var(--btn-border-radius);
+}
+
+.right_section {
+  box-sizing: border-box;
+  border-bottom-right-radius: var(--btn-border-radius);
+  border-top-right-radius: var(--btn-border-radius);
+  width: 50%;
+  background-color: var(--new-bg);
+  text-align: center;
+  padding: 100px 50px;
+}
+
+.login_input {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.login_input input {
+  width: 250px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+
+.login_input input:focus,
+.login_input input:active {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 0;
+}
+
+.right_section button {
+  margin-top: 30px;
+  width: 100px;
+  height: 35px;
+  background-color: var(--main-accent-color-dark);
+  border: none;
+  color: var(--main-text-color-dark);
+  cursor: pointer;
+  border-radius: var(--btn-border-radius);
+  box-shadow: 0px 0px 20px var(--main-accent-color-dark);
+  font-weight: bold;
+}
+
+.fa-user {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 50%;
+}
+
+.login_form , .register_form{
+  display: flex;
+  flex-direction: column;
+  justify-content:  baseline;
+  align-items: center;
+}
+
+.login_form span:hover , .register_form span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
