@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./News.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import Today from '../Today/Today';
+import { useDebounce } from "../Debounce/Debounce";
 
 const News = () => {
   const [news, setNews] = useState({});
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("Crypto");
+  const debouncedSearch = useDebounce(searchTerm, 500);
 
   const getNews = async () => {
     try {
@@ -38,7 +40,7 @@ const News = () => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [searchTerm]);
+  }, [debouncedSearch]);
 
   return (
     <>

@@ -4,7 +4,7 @@ import digiLogo from "../assets/D-logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 // you can add a useEffect and in there get the localStorage user
 
-//dont forget you have to convert strig to object => JSON.parse
+//dont forget you have to convert string to object => JSON.parse
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -79,15 +79,9 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar_right_items">
-          {/* <NavLink to="/login">
-            <button>Login</button>
-          </NavLink> */}
           {Object.keys(user).length !== 0 ? (
             <NavLink to="/profile">
-              {/* <button id="logged_in_button">
-                Hi, {user.email.split("@")[0]}
-              </button> */}
-              <div class="profile_picture">
+              <div className="profile_picture">
                 <span>{user.email[0].toUpperCase()}</span>
               </div>
             </NavLink>

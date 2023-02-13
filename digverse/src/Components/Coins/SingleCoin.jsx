@@ -109,6 +109,8 @@ const SingleCoin = (props) => {
     ]);
   };
 
+  
+
   return (
     <>
       <div className="single_crypto">

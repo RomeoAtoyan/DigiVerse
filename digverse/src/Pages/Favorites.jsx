@@ -1,24 +1,46 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Favorites.css";
 import Nav from "../Components/Nav/Nav";
 import { supabase } from "../Components/Profile/supabaseClient";
 import { Link } from "react-router-dom";
+import BackButton from "../Components/BackButton/BackButton";
+
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
+  const [searchFav, setSearchFav] = useState("");
+  const [showIcon, setShowIcon] = useState(false);
 
-  async function getFavoriteCrypto() {
+
+  const getFavoriteCrypto = async () => {
     let { data: cryptocurrencies, error } = await supabase
       .from("favorite_crypto")
       .select("*");
     if (cryptocurrencies) {
-      console.log(cryptocurrencies);
       setFavorites(cryptocurrencies);
     }
     if (error) {
       console.log(error);
       setFavorites([]);
     }
-  }
+  };
+
+  const deleteFavoriteCoin = async (coinID) => {
+    const { error } = await supabase
+      .from("favorite_crypto")
+      .delete()
+      .eq("coinID", coinID);
+
+    if (error) {
+      console.log(error);
+    } else {
+      getFavoriteCrypto();
+    }
+  };
+
+  const searchFavoriteCoin = (event) => {
+    setSearchFav(event.target.value.toLowerCase());
+  };
 
   useEffect(() => {
     getFavoriteCrypto();
@@ -27,18 +49,68 @@ const Favorites = () => {
   return (
     <>
       <Nav />
-      <div>YOU ARE IN THE FAVORITES PAGE</div>
+      <br />
+      <div className="fav_top_buttons_container">
+        <BackButton page="/cryptocurrencies" />
+        <h3 id="fav_coin_h1">
+          You have {favorites.length}{" "}
+          {favorites.length === 1 ? "Favorite Coin" : "Favorite Coins"}
+        </h3>
+      </div>
       <div className="favorite_coin_container">
-        {favorites.map((coin) => (
+        {favorites.length === 0 ? (
+          <h1 style={{textAlign:"center"}}>You have not added any coins</h1>
+        ) : (
           <>
-            <Link className="link" to={`/cryptocurrencies/${coin.coinID}`}>
-              <div className="favorite_coin">
-                <img src={coin.image} width="100px" alt="" srcset="" />
-                <h1>{coin.name}</h1>
-              </div>
-            </Link>
+            <div className="search_fav_coins">
+              <input
+                type="text"
+                id="searching_fav_coins"
+                onChange={searchFavoriteCoin}
+                placeholder="Search Favorite Coins"
+              />
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <button
+                onClick={() => setShowIcon(!showIcon)}
+                style={{ marginLeft: "20px" }}
+                className="remove_fav_coins"
+              >
+                {showIcon ? "Done" : "Remove Coins"}
+              </button>
+            </div>
+            <div
+              style={
+                !searchFav
+                  ? { justifyContent: "center" }
+                  : { justifyContent: "left" }
+              }
+              className="favorite_coin"
+            >
+              {favorites
+                .filter((coin) => coin.name.toLowerCase().includes(searchFav))
+                .map((coin) => (
+                  <>
+                    <div className="favorite_single_coin">
+                      <Link
+                        className="link"
+                        target="_blank"
+                        to={`/cryptocurrencies/${coin.coinID}`}
+                      >
+                        <h1>{coin.name}</h1>
+                      </Link>
+                      <img src={coin.image} width="60px" alt="" srcSet="" />
+                      {showIcon && (
+                        <i
+                          onClick={() => deleteFavoriteCoin(coin.coinID)}
+                          class="fa-solid fa-xmark"
+                        ></i>
+                      )}
+                    </div>
+                  </>
+                ))}
+            </div>
           </>
-        ))}
+        )}
       </div>
     </>
   );

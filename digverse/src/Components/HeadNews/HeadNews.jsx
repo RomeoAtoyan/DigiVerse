@@ -22,7 +22,7 @@ const News = () => {
     }
   }
 
-  const { description, title, url, urlToImage, source, author } = headnews;
+  const { description, title, url, urlToImage, source } = headnews;
 
   useEffect(() => {
     getNewsData();

@@ -1,27 +1,113 @@
 .favorite_coin_container {
+  box-sizing: border-box;
   width: 90%;
-  height: 75vh;
-  margin-inline: auto;
+  height: max-content;
+  margin: 40px auto;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 25px;
+  background-color: var(--new-container);
+  border-radius: var(--btn-border-radius);
+  box-shadow: 0 0 30px black;
+  padding: 75px;
 }
 
-.favorite_coin {
-  text-align: center;
-  width: 250px;
-  background-color: var(--new-container);
-  box-shadow: 0 0 20px black;
+.link {
+  width: max-content;
+}
+
+.favorite_single_coin {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  background-color: var(--new-bg);
+  box-shadow: 0 0 10px black;
   padding: 15px;
   display: flex;
   gap: 10px;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-radius: var(--btn-border-radius);
+  transform: translateY(10deg);
 }
 
-.favorite_coin:hover {
+.fa-xmark {
+  position: absolute;
+  top: -10px;
+  left: 415px;
+  background-color: red;
+  color: white;
+  display: flex;
+  padding: 3px;
+  border-radius: 50%;
+  justify-content: center;
+  cursor: pointer;
+  width: 15px;
+}
+
+.remove_fav_coins {
+  width: 120px;
+  box-shadow: 0 0 10px var(--main-accent-color-dark);
+  background-color: var(--main-accent-color-dark);
+  border: none;
+  outline: none;
+  padding: 4px;
+  color: var(--main-text-color);
+  border-radius: var(--btn-border-radius);
+  cursor: pointer;
+}
+
+.remove_fav_coins:hover {
+  box-shadow: 0 0 15px var(--main-accent-color-dark);
+}
+
+.favorite_single_coin:hover {
   box-shadow: 0 0 20px var(--main-accent-color-dark);
   transform: translateY(-5px);
+}
+
+#fav_coin_h1 {
+  display: inline;
+  background-color: var(--new-container);
+  padding: 10px;
+  border-radius: var(--btn-border-radius);
+  box-shadow: 0 0 10px var(--main-accent-color-dark);
+}
+
+.fav_top_buttons_container {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.favorite_coin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding-top: 30px;
+}
+
+.search_fav_coins {
+  display: flex;
+  margin-left: 115px;
+}
+
+.search_fav_coins input {
+  height: 35px;
+  border: none;
+  border-top-left-radius: var(--btn-border-radius);
+  border-bottom-left-radius: var(--btn-border-radius);
+  background-color: var(--new-bg);
+  outline: none;
+  padding-left: 10px;
+  color: var(--main-text-color);
+  width: 200px;
+}
+
+.search_fav_coins i {
+  background-color: var(--new-bg);
+  display: flex;
+  align-items: center;
 }

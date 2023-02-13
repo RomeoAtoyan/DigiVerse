@@ -9,6 +9,10 @@
   padding: 20px;
 }
 
+.coin_id_top_buttons {
+  margin-top: 50px;
+}
+
 .general_container_skeleton {
   box-sizing: border-box;
   width: 80%;

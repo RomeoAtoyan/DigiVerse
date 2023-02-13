@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Search.css";
 import { Link } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
+import { useDebounce } from "../Debounce/Debounce";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -22,6 +23,8 @@ const Search = () => {
     }
   }
 
+  const debouncedSearch = useDebounce(search, 500);
+
   const searchCoin = () => {
     const search_input = document.getElementById("search_coin").value;
     let search_results = document.querySelector(".search_results");
@@ -36,8 +39,10 @@ const Search = () => {
   };
 
   useEffect(() => {
-    search !== "" && searchCoinData(search);
-  }, [search]);
+    if (debouncedSearch) {
+      searchCoinData();
+    }
+  }, [debouncedSearch]);
 
   return (
     <>
