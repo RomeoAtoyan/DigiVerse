@@ -261,6 +261,22 @@ body {
     padding: 0;
   }
 
+  .single_coin_about_section p {
+    box-sizing: border-box;
+    overflow: hidden;
+    overflow: scroll;
+    height: 400px;
+    padding: 10px;
+    background-color: var(--new-container);
+    border-radius: var(--btn-border-radius);
+  }
+
+  .single_coin_about_section a p {
+    background-color: transparent;
+    padding: 0;
+    height: max-content;
+  }
+
   .navbar_container {
     padding: 0 15px;
   }
@@ -359,6 +375,10 @@ body {
     padding: 0 !important;
   }
 
+  .coin_id_top_buttons {
+    margin: 40px 0 0 0 !important;
+  }
+
   #currencyResult2 {
     margin-bottom: 25px !important ;
   }
@@ -390,6 +410,7 @@ body {
   }
 
   .hamburger_menu_items ul li a {
+    color: white;
     text-decoration: none;
   }
 
