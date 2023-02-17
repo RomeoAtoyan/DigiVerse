@@ -16,8 +16,6 @@ body {
   text-align: center;
 }
 
-
-
 .all_container {
   box-sizing: border-box;
   width: 100%;
@@ -190,6 +188,7 @@ body {
   align-items: center;
 }
 
+
 .all_container_skeleton {
   box-sizing: border-box;
   width: 100%;
@@ -337,7 +336,7 @@ body {
   }
 
   .navbar_items {
-    padding:0;
+    padding: 0;
   }
 
   .hamburger_menu {
@@ -499,6 +498,7 @@ body {
   #market_cap_h5 {
     display: block;
   }
+
 
   .navbar_redirections ul {
     display: flex;
