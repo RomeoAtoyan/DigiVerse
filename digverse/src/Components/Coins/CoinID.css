@@ -9,10 +9,6 @@
   padding: 20px;
 }
 
-.coin_id_top_buttons {
-  margin-top: 50px;
-}
-
 .general_container_skeleton {
   box-sizing: border-box;
   width: 80%;
@@ -53,7 +49,6 @@
 }
 
 .single_coin_price_section {
-
   box-sizing: border-box;
   background-color: var(--new-container);
   border-radius: var(--btn-border-radius);
@@ -245,6 +240,7 @@
 .coin_id_top_buttons {
   display: flex;
   gap: 20px;
+  margin-top: 50px;
 }
 
 #currencyResult2 {
@@ -291,3 +287,48 @@
   padding: 5px;
   border-radius: var(--btn-border-radius);
 }
+
+@media only screen and (min-width: 375px) and (max-width: 1000px) {
+  .general_container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .single_coin_id_chart {
+    width: 100%;
+  }
+
+  .trending_coin_container {
+    width: 100%;
+  }
+
+  .single_coin_about_section {
+    margin-top: 500px;
+    width: 100%;
+  }
+
+  .single_coin_about_section p {
+    text-align: center;
+  }
+
+  .social_media_section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+/* @media only screen and (max-width: 1000px) {
+  .social_media_section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .trending_coin h1 {
+    width: 400px;
+    text-align: center;
+  }
+} */

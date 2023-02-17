@@ -23,11 +23,10 @@ const Login = () => {
   //     }
   //   });
   // }, []);
-  
+
   useEffect(() => {
     supabase.auth.onAuthStateChange(async (event) => {
       if (event === "SIGNED_IN") {
-        console.log(event);
         const userData = await supabase.auth.getUser();
         localStorage.setItem("User_Status", JSON.stringify(userData.data.user));
         setUser(userData);
@@ -40,23 +39,18 @@ const Login = () => {
 
   return (
     <>
-      <div className="login_container_supabase">
-        <Auth
-          autocomplete="off"
-          supabaseClient={supabase}
-          appearance={{
-            theme: ThemeSupa,
-            style: {
-              container: {
-                width: "450px",
-              },
+      <Auth
+        supabaseClient={supabase}
+        appearance={{
+          theme: ThemeSupa,
+          style: {
+            container: {
+              width: "450px",
             },
-          }}
-          // providers={["github"]}
-          theme="dark"
-          className="custom-auth"
-        />
-      </div>
+          },
+        }}
+        theme="dark"
+      />
     </>
   );
 };

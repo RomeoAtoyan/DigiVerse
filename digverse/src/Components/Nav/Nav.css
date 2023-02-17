@@ -9,6 +9,10 @@
   box-shadow: 0 0 10px var(--main-accent-color-dark);
 }
 
+.hamburger_menu {
+  display: none;
+}
+
 .profile_picture {
   width: 50px;
   object-fit: contain;
@@ -108,6 +112,7 @@
 
 #Digi {
   color: var(--main-text-color-dark);
+  cursor: pointer;
 }
 
 .title_section {
@@ -130,3 +135,4 @@
   border-radius: 4px;
   cursor: pointer;
 }
+

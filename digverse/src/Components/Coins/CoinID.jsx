@@ -45,19 +45,6 @@ const CoinID = () => {
     }
   };
 
-  // const setFavorites = async () => {
-  //   const { data, error } = await supabase.from("favorite_crypto").insert([
-  //     {
-  //       name: coin.name,
-  //       coinID: coin.id,
-  //       image: coin.image.large,
-  //       price: coin.current_price,
-  //       price_change: coin.price_change_percentage_24h,
-  //     },
-  //   ]);
-  //   console.log(coin.id);
-  // };
-
   const getTrendingCoin = async () => {
     try {
       setLoading(true);

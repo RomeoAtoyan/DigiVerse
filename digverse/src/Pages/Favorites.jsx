@@ -96,7 +96,7 @@ const Favorites = () => {
                         target="_blank"
                         to={`/cryptocurrencies/${coin.coinID}`}
                       >
-                        <h1>{coin.name}</h1>
+                        <h1 className={coin.name.length > 8 ? 'smaller_font' : " "}>{coin.name}</h1>
                       </Link>
                       <img src={coin.image} width="60px" alt="" srcSet="" />
                       {showIcon && (

@@ -9,24 +9,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Nav = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
-  // useEffect(() => {
-  //   const localUser = localStorage.getItem("User_Status");
-  //   if (localUser) {
-  //     setUser(JSON.parse(localUser));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const localUser = localStorage.getItem("User_Status");
-  //   if (localUser) {
-  //     try {
-  //       const parsedUser = JSON.parse(localUser);
-  //       setUser(parsedUser);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // }, []);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   useEffect(() => {
     const localUser = localStorage.getItem("User_Status");
@@ -45,16 +28,54 @@ const Nav = () => {
     }
   }, []);
 
+  const hamburgerMenuToggle = () => {
+    setToggleMenu(!toggleMenu);
+    // const menuIcon = document.querySelector(".hamburger_menu i");
+    // menuIcon.classList.toggle("fa-bars");
+    // menuIcon.classList.toggle("fa-times");
+  };
+
   return (
     <nav className="navbar_container">
       <div className="navbar_items">
+        <div className="hamburger_menu">
+          <i
+            onClick={hamburgerMenuToggle}
+            className={`fa-solid ${toggleMenu ? "fa-times" : "fa-bars"} fa-2x`}
+          ></i>
+          {toggleMenu ? (
+            <div className="hamburger_menu_items">
+              <ul>
+                <li>
+                  <NavLink to="/cryptocurrencies">Crypto</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/news">News</NavLink>
+                </li>
+                {Object.keys(user).length !== 0 ? (
+                  <li>
+                    <NavLink to="/favorites">Favorites</NavLink>
+                  </li>
+                ) : (
+                  ""
+                )}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <div className="title_section">
           <img id="digiverse-logo" src={digiLogo} alt="" />
-          <h1 id="Digi">
+          <h1 onClick={() => navigate("/")} id="Digi">
             Digi<span id="Verse">Verse</span>
           </h1>
         </div>
-        <div className="navbar_redirections">
+        <div
+          className={`navbar_redirections ${
+            user ? "navbar_redirect_horizontal navbar_redirect_vertical" : ""
+          }`}
+        >
           <ul>
             {/* <li>
               <NavLink to="/">Home</NavLink>

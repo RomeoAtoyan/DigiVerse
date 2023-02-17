@@ -56,7 +56,6 @@ const Search = () => {
           />
           <i className="fa-solid fa-magnify fa-magnifying-glass"></i>
         </div>
-
         <div className="search_results">
           {searchedCoin.map((coin) => (
             <Link

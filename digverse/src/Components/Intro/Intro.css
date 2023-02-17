@@ -1,5 +1,5 @@
 * {
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
 
 .welcome_container {
@@ -24,12 +24,16 @@
 }
 
 #moon {
+  top: -40px;
+  left:-20px;
   object-fit: contain;
   filter: brightness(90%);
-  width: 600px;
+  width: 700px;
   transform: scale(1.1);
   position: relative;
   animation: float 6s ease-in-out infinite;
+  border-radius: 50%;
+  box-shadow: 0 0 150px black;
 }
 
 @keyframes float {
@@ -52,9 +56,9 @@
 
 #rocket {
   right: 250px;
-  top: 350px;
+  top: 300px;
   object-fit: contain;
-  width: 350px;
+  width: 450px;
   position: absolute;
   transform: scale(1.1);
   animation: float 4s ease-in-out infinite;

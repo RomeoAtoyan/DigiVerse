@@ -16,16 +16,20 @@ const CryptoPage = () => {
   const [loading, setLoading] = useState(true);
   const [currency, setCurrency] = useState("eur");
   const [currencySymbol, setCurrencySymbol] = useState("€");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNextPage = () => {
     const nextPage = page + 1;
     setPage(nextPage);
     getCoinData(nextPage);
+    navigate(`${location.pathname}?page=${nextPage}`);
   };
 
   const handlePrevPage = () => {
     setPage(Math.max(page - 1, 1));
     getCoinData(Math.max(page - 1, 1));
+    navigate(`${location.pathname}?page=${Math.max(page - 1, 1)}`);
   };
 
   const getResultValue = () => {
@@ -69,6 +73,11 @@ const CryptoPage = () => {
   return (
     <>
       <Nav />
+      <div className="intro_background_image">
+        Welcome to the thrilling world of cryptocurrency, where decentralized
+        technologies are disrupting the traditional financial system and opening
+        up new avenues for innovation and investment
+      </div>
       <Search />
       {loading ? (
         <main className="all_container_skeleton">

@@ -69,7 +69,6 @@
 
 #fav_coin_h1 {
   display: inline;
-  background-color: var(--new-container);
   padding: 10px;
   border-radius: var(--btn-border-radius);
   box-shadow: 0 0 10px var(--main-accent-color-dark);
@@ -110,4 +109,53 @@
   background-color: var(--new-bg);
   display: flex;
   align-items: center;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 900px) {
+  .favorite_coin_container {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+
+  .smaller_font {
+    font-size: 14px;
+  }
+
+  .search_fav_coins {
+    margin: 10px 0 0 0;
+    /* width: 10%; */
+  }
+
+  .remove_fav_coins {
+    margin: 0;
+    width: 100%;
+  }
+
+  .search_fav_coins i {
+    display: none;
+  }
+
+  .fav_top_buttons_container {
+    margin-left: 15px;
+  }
+
+  .favorite_coin {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .favorite_single_coin {
+    width: 90%;
+    height: 30px;
+  }
+
+  #searching_fav_coins {
+    border-radius: var(--btn-border-radius);
+  }
+
+  .favorite_single_coin img {
+    width: 40px;
+  }
 }

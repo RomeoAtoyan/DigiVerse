@@ -1,14 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { supabase } from "../Profile/supabaseClient";
-import { useEffect, useState } from "react";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import { supabase } from "../Profile/supabaseClient";
+// import { useEffect, useState } from "react";
 
 // const SingleCoin = (props) => {
-//   const [loggedIn, setLoggedIn] = useState(false);
+//   const [users, setUsers] = useState(null);
+//   const [favorites, setFavorites] = useState([]);
 
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       const { data: userData } = await supabase.auth.getUser();
+//       setUsers(userData.user);
+//     };
+//     fetchUser();
+//   }, []);
 
-
-//   const setFavorites = async () => {
+//   const handleSetFavorites = async () => {
 //     const {
 //       data: { user },
 //     } = await supabase.auth.getUser();
@@ -17,24 +24,11 @@ import { useEffect, useState } from "react";
 //         name: props.crypto.name,
 //         coinID: props.crypto.id,
 //         image: props.crypto.image,
-//         // price: props.crypto.current_price,
-//         // price_change: props.crypto.price_change_percentage_24h.toFixed(2),
 //         user_id: user.id,
 //       },
 //     ]);
+//     setFavorites([...favorites, props.crypto.id]);
 //   };
-
-//   useEffect(() => {
-//     const checkLoginStatus = async () => {
-//       try {
-//         const { data } = await supabase.auth.getUser();
-//         setLoggedIn(true);
-//       } catch (error) {
-//         setLoggedIn(false);
-//       }
-//     };
-//     checkLoginStatus();
-//   }, []);
 
 //   return (
 //     <>
@@ -47,8 +41,8 @@ import { useEffect, useState } from "react";
 //               to={`/cryptocurrencies/${props.crypto.id}`}
 //               key={props.crypto.id}
 //             >
-//               <h3>
-//                 #{props?.crypto?.market_cap_rank} {props.crypto.name}
+//               <h3 className={props?.crypto?.name?.length > 8 ? 'mobile_small_font' : ""}>
+//                 <span className="hide_mobile">#{props?.crypto?.market_cap_rank}</span> {props.crypto.name}
 //               </h3>
 //             </Link>
 //             <h6>{props?.crypto?.symbol}</h6>
@@ -73,9 +67,11 @@ import { useEffect, useState } from "react";
 //           <h5 id="market_cap_h5">
 //             {props?.crypto?.market_cap.toLocaleString()} €
 //           </h5>
-//           {/* <i onClick={setFavorites} className="fa-regular fa-bookmark"></i> */}
-//           {loggedIn && (
-//             <i onClick={setFavorites} className="fa-regular"></i>)}
+//           {users ? (
+//             <i onClick={handleSetFavorites} className={`fa-bookmark ${
+//               favorites.includes(props.crypto.id) ? "fa-solid" : "fa-regular"
+//             }`}></i>
+//           ) : null}
 //         </div>
 //       </div>
 //     </>
@@ -84,77 +80,115 @@ import { useEffect, useState } from "react";
 
 // export default SingleCoin;
 
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { supabase } from "../Profile/supabaseClient";
+
 const SingleCoin = (props) => {
-  const [users, setUsers] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data: userData } = await supabase.auth.getUser();
-      setUsers(userData.user);
+      setUser(userData.user);
     };
     fetchUser();
   }, []);
 
-  const setFavorites = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    const { data, error } = await supabase.from("favorite_crypto").insert([
-      {
-        name: props.crypto.name,
-        coinID: props.crypto.id,
-        image: props.crypto.image,
-        user_id: user.id,
-      },
-    ]);
+  useEffect(() => {
+    const fetchUserFavorites = async () => {
+      if (user) {
+        const { data: favoritesData } = await supabase
+          .from("favorite_crypto")
+          .select("*")
+          .eq("user_id", user.id)
+          .eq("coinID", props.crypto.id);
+        setIsFavorite(favoritesData.length > 0);
+      }
+    };
+    fetchUserFavorites();
+  }, [user, props.crypto.id]);
+
+  const addFavorite = async () => {
+    if (user) {
+      await supabase.from("favorite_crypto").insert([
+        {
+          name: props.crypto.name,
+          coinID: props.crypto.id,
+          image: props.crypto.image,
+          user_id: user.id,
+        },
+      ]);
+      setIsFavorite(true);
+    }
   };
 
-  
+  const removeFavorite = async () => {
+    if (user) {
+      await supabase
+        .from("favorite_crypto")
+        .delete()
+        .eq("user_id", user.id)
+        .eq("coinID", props.crypto.id);
+      setIsFavorite(false);
+    }
+  };
 
   return (
-    <>
-      <div className="single_crypto">
-        <img src={props?.crypto?.image} alt="crypto-img" />
-        <div className="crypto_description">
-          <div className="crypto_symbol">
-            <Link
-              className="link"
-              to={`/cryptocurrencies/${props.crypto.id}`}
-              key={props.crypto.id}
+    <div className="single_crypto">
+      <img src={props?.crypto?.image} alt="crypto-img" />
+      <div className="crypto_description">
+        <div className="crypto_symbol">
+          <Link
+            className="link"
+            to={`/cryptocurrencies/${props.crypto.id}`}
+            key={props.crypto.id}
+          >
+            <h3
+              className={
+                props.crypto?.name?.length > 10 ? "mobile_font_smaller" : " "
+              }
             >
-              <h3>
-                #{props?.crypto?.market_cap_rank} {props.crypto.name}
-              </h3>
-            </Link>
-            <h6>{props?.crypto?.symbol}</h6>
-          </div>
-          <h5 className="price">
-            {props?.crypto?.current_price > 999.99
-              ? props?.crypto?.current_price.toLocaleString()
-              : props?.crypto?.current_price}{" "}
-            {props.currencySymbol}
-          </h5>
-          <div className="crypto_price_change">
-            <h5>
-              {props?.crypto?.price_change_percentage_24h?.toFixed(2)} %{" "}
-              {props?.crypto?.price_change_percentage_24h <= 0 ? (
-                <i className="fa-solid fa-arrow-down"></i>
-              ) : (
-                <i className="fa-solid fa-arrow-up"></i>
-              )}
-            </h5>
-            <br />
-          </div>
-          <h5 id="market_cap_h5">
-            {props?.crypto?.market_cap.toLocaleString()} €
-          </h5>
-          {users ? (
-        <i onClick={setFavorites} className="fa-regular fa-bookmark"></i>
-      ) : null}
-
+              <span className="hide_mobile">
+                #{props?.crypto?.market_cap_rank}
+              </span>{" "}
+              {props.crypto.name}
+            </h3>
+          </Link>
+          <h6>{props?.crypto?.symbol}</h6>
         </div>
+        <h5 className="price">
+          {props?.crypto?.current_price > 999.99
+            ? props?.crypto?.current_price.toLocaleString()
+            : props?.crypto?.current_price}{" "}
+          {props.currencySymbol}
+        </h5>
+        <div className="crypto_price_change">
+          <h5>
+            {props?.crypto?.price_change_percentage_24h?.toFixed(2)} %{" "}
+            {props?.crypto?.price_change_percentage_24h <= 0 ? (
+              <i className="fa-solid fa-arrow-down"></i>
+            ) : (
+              <i className="fa-solid fa-arrow-up"></i>
+            )}
+          </h5>
+          <br />
+        </div>
+        <h5 id="market_cap_h5">
+          {props?.crypto?.market_cap.toLocaleString()} €
+        </h5>
+        {user && (
+          <>
+            {isFavorite ? (
+              <i className="fa-solid fa-bookmark" onClick={removeFavorite}></i>
+            ) : (
+              <i className="fa-regular fa-bookmark" onClick={addFavorite}></i>
+            )}
+          </>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

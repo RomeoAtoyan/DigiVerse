@@ -2,6 +2,22 @@ body {
   width: 100%;
 }
 
+.intro_background_image {
+  background-image: url(../Components/assets/26820.jpg) !important;
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  text-align: center;
+}
+
+
+
 .all_container {
   box-sizing: border-box;
   width: 100%;
@@ -27,14 +43,9 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
   height: max-content;
-}
-
-.widget_section h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .single_crypto {
@@ -66,6 +77,7 @@ body {
   background-color: var(--new-container);
   color: var(--main-accent-color-dark);
   box-shadow: 0px 0px 7px var(--main-accent-color-dark);
+  margin-top: 10px;
 }
 
 .crypto_description {
@@ -196,7 +208,6 @@ body {
   width: 20%;
 }
 
-
 .link,
 .link:visited {
   color: var(--main-text-color-dark);
@@ -228,4 +239,283 @@ body {
   display: flex;
   justify-content: baseline;
   gap: 5px;
+}
+
+.tooltipHover {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 15px;
+  width: 200px;
+  background-color: black;
+  color: var(--main-accent-color-dark);
+}
+
+.widget_section {
+  justify-content: center !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .all_container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .searchbar {
+    width: 100%;
+  }
+
+  .link {
+    color: var(--main-text-color-dark);
+  }
+
+  .searchbar input {
+    width: 100% !important;
+    height: 40px !important;
+  }
+
+  .intro_background_image {
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .single_crypto {
+    height: 80px;
+  }
+
+  .search_section {
+    width: 100% !important;
+    margin: 30px 0 0 0 !important;
+  }
+
+  .search_input {
+    width: 100% !important;
+    margin: 0 0 0 0 !important;
+  }
+
+  .search_results {
+    width: 80% !important;
+    padding: 0 !important;
+    margin: 20px auto;
+  }
+
+  .mobile_font_smaller {
+    font-size: 14px;
+    width: 150px;
+  }
+
+  .crypto_price_change {
+    margin: 0;
+    width: 25%;
+  }
+
+  .crypto_section {
+    width: 100%;
+    margin: 10px 0 0 0 !important;
+  }
+
+  .crypto_description {
+    padding: 0 15px;
+  }
+
+  .crypto_symbol h6 {
+    display: none;
+  }
+
+  .price {
+    margin: 0;
+    width: 25%;
+    font-size: 12px;
+  }
+
+  .navbar_redirections ul {
+    display: none;
+  }
+
+  .navbar_items {
+    padding:0;
+  }
+
+  .hamburger_menu {
+    display: block;
+    position: relative;
+  }
+
+  .hamburger_menu_items {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    top: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--main-accent-color-dark);
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .hamburger_menu_items ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+  }
+
+  .hamburger_menu_items ul li {
+    list-style: none;
+    font-size: 18px;
+  }
+
+  .hamburger_menu_items ul li a {
+    text-decoration: none;
+  }
+
+  .search_input {
+    width: 40px;
+  }
+
+  #market_cap_h5 {
+    display: none;
+  }
+
+  .hide_mobile {
+    display: none;
+  }
+
+  .widget_section {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .all_news_container {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 0 5px;
+  }
+
+  .single_news_container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .crypto_news_container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .search_section {
+    width: 100% !important;
+    margin: 30px 0 0 0 !important;
+    align-items: flex-start !important;
+  }
+
+  .intro_background_image {
+    font-size: 40px;
+  }
+
+  .search_results {
+    width: 50% !important;
+    padding: 0 !important;
+    margin-top: 15px;
+  }
+
+  .search_input {
+    width: 40px;
+  }
+
+  .all_container {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #market_cap_h5 {
+    display: block !important;
+  }
+
+  .single_crypto {
+    box-sizing: border-box;
+    height: 70px;
+    padding: 0 15px !important;
+  }
+
+  .all_news_container {
+    margin: 0;
+  }
+
+  .single_news_container {
+    width: 100%;
+  }
+
+  .single_news {
+    height: 150px;
+  }
+
+  .single_news_description {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .searchbar {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1600px) {
+  .crypto_description {
+    padding: 0;
+  }
+
+  .hide_mobile {
+    display: none;
+  }
+
+  .crypto_symbol h6 {
+    display: none;
+  }
+
+  .single_news_description {
+    font-size: 11.5px;
+    width: 250px;
+  }
+
+  .mobile_font_smaller {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #market_cap_h5 {
+    display: block;
+  }
+
+  .navbar_redirections ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar_redirections ul li {
+    width: fit-content;
+  }
+
+  .hamburger_menu {
+    display: none;
+  }
+
+  .search_results {
+    width: 50% !important;
+    padding: 0 !important;
+    margin-top: 15px;
+  }
 }

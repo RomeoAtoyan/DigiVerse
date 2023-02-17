@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./News.css";
 import ClipLoader from "react-spinners/ClipLoader";
-import Today from '../Today/Today';
+import Today from "../Today/Today";
 import { useDebounce } from "../Debounce/Debounce";
 
 const News = () => {
@@ -44,15 +44,15 @@ const News = () => {
 
   return (
     <>
-    <div className="searchbar">
-            <input
-              onChange={handleSearch}
-              placeholder="Search News"
-              id="search_news"
-              type="text"
-            />
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
+      <div className="searchbar">
+        <input
+          onChange={handleSearch}
+          placeholder="Search News"
+          id="search_news"
+          type="text"
+        />
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </div>
       {loading ? (
         <section className="all_news_container_skeleton">
           <div className="single_news_container_skeleton">
@@ -73,7 +73,11 @@ const News = () => {
                   src={art?.urlToImage}
                 />
                 <div className="single_news_description">
-                  <h1>{art?.title}</h1>
+                  <h1
+                    className={art?.title.length > 40 ? "news_mobile_font" : ""}
+                  >
+                    {art?.title}
+                  </h1>
                   <>
                     <br />
                     <aside>

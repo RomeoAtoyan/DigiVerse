@@ -8,6 +8,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  ResponsiveContainer,
 } from "recharts";
 
 const Chart = ({ usedId, currency }) => {
@@ -35,7 +36,6 @@ const Chart = ({ usedId, currency }) => {
 
   const getCurrValue = (e) => {
     setDays(e.target.value);
-    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -61,29 +61,29 @@ const Chart = ({ usedId, currency }) => {
         </div>
       ) : (
         <div className="chart_container">
-          <LineChart
-            width={900}
-            height={290}
-            data={chartData.prices}
-            fill="black"
-          >
-            <Line
-              type="monotone"
-              stroke="green"
-              dataKey="1"
-              strokeWidth={0.5}
-            />
-            <XAxis dataKey={0} />
-            <YAxis />
-            <Tooltip
-              formatter={(value) =>
-                value > 999.99
-                  ? value.toLocaleString()
-                  : value 
-              }
-            />
-            <Legend/>
-          </LineChart>
+          <ResponsiveContainer width="100%" height={325}>
+            <LineChart
+              className="chart"
+              width={900}
+              height={290}
+              data={chartData.prices}
+              fill="black"
+            >
+              <Line
+                type="monotone"
+                stroke="green"
+                dataKey="1"
+                strokeWidth={0.5}
+              />
+              <XAxis dataKey={0} />
+              <YAxis />
+              <Tooltip
+                formatter={(value) =>
+                  value > 999.99 ? value.toLocaleString() : value
+                }
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       )}
     </>

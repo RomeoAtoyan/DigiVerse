@@ -15,7 +15,6 @@ const Succes = () => {
       setLoading(true);
       await supabase.auth.getUser().then((value) => {
         if (value.data?.user) {
-          console.log(value.data?.user);
           setUser(value.data?.user);
           setLoading(false);
         }
@@ -29,6 +28,8 @@ const Succes = () => {
     localStorage.removeItem("User_Status");
     navigate("/");
   };
+
+  
 
   const continueTo = () => {
     navigate("/cryptocurrencies");

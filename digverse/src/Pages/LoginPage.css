@@ -11,14 +11,15 @@
 .login_container_supabase {
   width: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .left_section {
+  position: relative;
   width: 50%;
   height: 100%;
-  background-image: url(https://images.pexels.com/photos/2469122/pexels-photo-2469122.jpeg?cs=srgb&dl=astronomy-exploration-free-wallpaper-2469122.jpg&fm=jpg);
   background-position: center;
   background-size: cover;
   opacity: 70%;
@@ -27,6 +28,7 @@
   align-items: center;
   border-bottom-left-radius: var(--btn-border-radius);
   border-top-left-radius: var(--btn-border-radius);
+  padding: 80px;
 }
 
 .right_section {
@@ -83,14 +85,76 @@
   border-radius: 50%;
 }
 
-.login_form , .register_form{
+.login_form,
+.register_form {
   display: flex;
   flex-direction: column;
-  justify-content:  baseline;
+  justify-content: baseline;
   align-items: center;
 }
 
-.login_form span:hover , .register_form span:hover {
+.login_form span:hover,
+.register_form span:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1000px) {
+  .login_container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .left_section {
+    display: none !important;
+  }
+
+  .login_container_supabase {
+    width: 100%;
+  }
+
+  .t-dOnDMp {
+    width: 90%;
+  }
+
+  .supabase-ui-auth_ui-container {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .t-dOnDMp {
+    width: 60%;
+  }
+
+  .supabase-ui-auth_ui-container {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .left_section {
+    width: 20%;
+  }
+
+  .t-dOnDMp {
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 100% !important;
+    padding: 40px;
+  }
+
+  .supabase-ui-auth_ui-label {
+    color: var(--main-text-color-dark) !important;
+  }
+
+  .supabase-ui-auth_ui-container {
+    width: 100% !important;
+  }
+
+  .supabase-ui-auth_ui-anchor {
+    color: var(--main-text-color-dark) !important;
+  }
 }
