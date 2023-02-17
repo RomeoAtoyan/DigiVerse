@@ -44,7 +44,18 @@
 }
 
 @media only screen and (max-width: 1000px) {
+  body {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .intro {
+    align-items: center;
+    justify-content: unset;
+  }
+
   #introtext {
+    padding-top: 150px;
     font-size: 48px;
   }
 }

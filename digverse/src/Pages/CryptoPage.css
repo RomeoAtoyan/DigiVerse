@@ -188,7 +188,6 @@ body {
   align-items: center;
 }
 
-
 .all_container_skeleton {
   box-sizing: border-box;
   width: 100%;
@@ -260,6 +259,10 @@ body {
   .all_container {
     flex-direction: column;
     padding: 0;
+  }
+
+  .navbar_container {
+    padding: 0 15px;
   }
 
   .searchbar {
@@ -344,6 +347,22 @@ body {
     position: relative;
   }
 
+  .general_container {
+    padding: 0 !important;
+  }
+
+  .coin_description {
+    padding: 0 !important;
+  }
+
+  .single_coin_id_chart {
+    padding: 0 !important;
+  }
+
+  #currencyResult2 {
+    margin-bottom: 25px !important ;
+  }
+
   .hamburger_menu_items {
     position: absolute;
     width: 200px;
@@ -372,6 +391,15 @@ body {
 
   .hamburger_menu_items ul li a {
     text-decoration: none;
+  }
+
+  .coin_id_top_buttons {
+    width: 80% !important;
+    margin: 0 auto;
+  }
+
+  .back_button {
+    display: none;
   }
 
   .search_input {
@@ -498,7 +526,6 @@ body {
   #market_cap_h5 {
     display: block;
   }
-
 
   .navbar_redirections ul {
     display: flex;
