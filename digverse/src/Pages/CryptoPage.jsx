@@ -16,6 +16,7 @@ const CryptoPage = () => {
   const [loading, setLoading] = useState(true);
   const [currency, setCurrency] = useState("eur");
   const [currencySymbol, setCurrencySymbol] = useState("€");
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -110,7 +111,7 @@ const CryptoPage = () => {
                 <option value="gbp">GBP</option>
               </select>
             </div>
-            <Template />
+            <Template setCrypto={setCrypto} crypto={crypto} />
             <Coins crypto={crypto} currencySymbol={currencySymbol} />
             <div className="page_buttons">
               <i
