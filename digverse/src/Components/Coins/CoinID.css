@@ -9,9 +9,6 @@
   padding: 20px;
 }
 
-.coin_description {
-}
-
 .general_container_skeleton {
   box-sizing: border-box;
   width: 80%;
@@ -232,7 +229,6 @@
 .fa-arrow-left {
   background-color: var(--new-bg);
   color: var(--main-text-color-dark);
-  box-shadow: 0px 0px 6px var(--main-accent-color-dark);
   margin-left: 200px;
   padding: 10px;
   border-radius: var(--btn-border-radius);
@@ -335,6 +331,11 @@
 
   .coin_description {
     padding-right: 15px !important;
+  }
+
+  .favorite_coin_container h1 {
+    font-size: medium;
+    padding-top: 10px;
   }
 }
 

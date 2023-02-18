@@ -66,7 +66,12 @@ const Nav = () => {
           )}
         </div>
         <div className="title_section">
-          <img onClick={() => navigate("/cryptocurrencies")} id="digiverse-logo" src={digiLogo} alt="" />
+          <img
+            onClick={() => navigate("/cryptocurrencies")}
+            id="digiverse-logo"
+            src={digiLogo}
+            alt=""
+          />
           <h1 onClick={() => navigate("/cryptocurrencies")} id="Digi">
             Digi<span id="Verse">Verse</span>
           </h1>
@@ -77,10 +82,6 @@ const Nav = () => {
           }`}
         >
           <ul>
-            {/* <li>
-              <NavLink to="/">Home</NavLink>
-              <i className="fa-solid fa-house"></i>
-            </li> */}
             <li>
               <NavLink to="/cryptocurrencies">Crypto</NavLink>
               <i className="fa-solid fa-coins"></i>
@@ -107,7 +108,9 @@ const Nav = () => {
               </div>
             </NavLink>
           ) : (
-            <NavLink to="/login">
+            <NavLink
+              to={Object.keys(user).length !== 0 ? "/profile" : "/login"}
+            >
               <button>Login</button>
             </NavLink>
           )}
