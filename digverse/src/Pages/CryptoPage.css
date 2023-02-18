@@ -525,6 +525,12 @@ body {
     width: 100%;
     padding: 20px;
   }
+
+  .single_news {
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -636,7 +642,6 @@ body {
   }
 
   .search_results {
-    /* width: 50% !important; */
     padding: 0 !important;
     margin-top: 15px;
   }
