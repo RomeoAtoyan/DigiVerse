@@ -9,6 +9,9 @@
   padding: 20px;
 }
 
+.coin_description {
+}
+
 .general_container_skeleton {
   box-sizing: border-box;
   width: 80%;
@@ -72,14 +75,17 @@
 
 .coin_description {
   box-shadow: 0px 0px 10px var(--new-container);
-
   box-sizing: border-box;
   height: 380px;
   background-color: var(--new-container);
   mix-blend-mode: screen;
   border-radius: var(--btn-border-radius);
-  margin-top: 10px;
-  padding: 20px;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+#currencyResult3 {
+  border-radius: var(--btn-border-radius);
 }
 
 #coin_rank {
@@ -325,6 +331,10 @@
 
   .social_media_section h1 {
     font-size: 40px;
+  }
+
+  .coin_description {
+    padding-right: 15px !important;
   }
 }
 
