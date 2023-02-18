@@ -78,7 +78,7 @@ const Chart = ({ usedId, currency }) => {
                 dot={false}
               />
               <XAxis tick={{fill:"white"}} dataKey={0} />
-              <YAxis tick={{fill:"white"}} />
+              <YAxis tick={{fill:"aqua"}} />
               <Tooltip
                 formatter={(value) =>
                   value > 999.99 ? value.toLocaleString() : value
