@@ -5,54 +5,41 @@ import Today from "../Today/Today";
 import { useDebounce } from "../Debounce/Debounce";
 
 const News = () => {
-  const [news, setNews] = useState({});
+  const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("Crypto");
   const debouncedSearch = useDebounce(searchTerm, 500);
 
   const getNews = async () => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "62f920c671msh3ba91345981d596p128993jsn9f1cac9f053b",
+        "X-RapidAPI-Host": "crypto-update-live.p.rapidapi.com",
+      },
+    };
+
     try {
       setLoading(true);
       const response = await fetch(
-        `https://newsapi.org/v2/everything?q=${searchTerm}&from=${(
-          <Today />
-        )}&sortBy=popularity&apiKey=2851cfd2dd3f461789e36aca7da73030`
+        "https://crypto-update-live.p.rapidapi.com/news",
+        options
       );
       const data = await response.json();
       setNews(data);
+      console.log(data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
-  };
-
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
   };
 
   useEffect(() => {
-    let timeoutId;
-    if (searchTerm) {
-      timeoutId = setTimeout(() => {
-        getNews(searchTerm);
-      }, 500);
-    }
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [debouncedSearch]);
+    getNews();
+  }, []);
 
   return (
     <>
-      <div className="searchbar">
-        <input
-          onChange={handleSearch}
-          placeholder="Search News"
-          id="search_news"
-          type="text"
-        />
-        <i className="fa-solid fa-magnifying-glass"></i>
-      </div>
       {loading ? (
         <section className="all_news_container_skeleton">
           <div className="single_news_container_skeleton">
@@ -64,34 +51,13 @@ const News = () => {
       ) : (
         <section className="all_news_container">
           <div className="single_news_container">
-            {news.articles?.slice(0, 15).map((art, index) => (
+            {news.slice(0, 15).map((art, index) => (
               <div className="single_news" key={index}>
-                <img
-                  alt=""
-                  style={{ objectFit: "contain" }}
-                  height={60}
-                  src={art?.urlToImage}
-                />
-                <div className="single_news_description">
-                  <h1
-                    className={art?.title.length > 40 ? "news_mobile_font" : ""}
-                  >
-                    {art?.title}
-                  </h1>
-                  <>
-                    <br />
-                    <aside>
-                      <span>{art?.source?.name}</span>
-                      <ul>
-                        <li>
-                          <a target="_blank" href={art?.url} rel="noreferrer">
-                            Visit Page
-                          </a>
-                        </li>
-                      </ul>
-                    </aside>
-                  </>
-                </div>
+                <h1>{art?.Title}</h1>
+                <br />
+                <a target="_blank" href={art?.URL} rel="noreferrer">
+                  Visit Page
+                </a>
               </div>
             ))}
           </div>

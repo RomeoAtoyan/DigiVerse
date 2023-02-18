@@ -66,7 +66,7 @@ const Nav = () => {
           )}
         </div>
         <div className="title_section">
-          <img id="digiverse-logo" src={digiLogo} alt="" />
+          <img onClick={() => navigate("/")} id="digiverse-logo" src={digiLogo} alt="" />
           <h1 onClick={() => navigate("/")} id="Digi">
             Digi<span id="Verse">Verse</span>
           </h1>

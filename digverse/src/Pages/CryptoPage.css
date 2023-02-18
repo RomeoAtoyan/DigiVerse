@@ -137,13 +137,6 @@ body {
   width: 40%;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  gap: 10px;
-}
-
 .pagination button {
   object-fit: contain;
   width: 25px;
@@ -261,6 +254,53 @@ body {
     padding: 0;
   }
 
+  .crypto_section_skeleton {
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    border: 3px solid var(--new-container);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .all_container_skeleton {
+    box-sizing: border-box;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 0 0 0;
+    margin-top: 20px;
+    margin: 20px auto;
+  }
+
+  .news_page_wallpaper {
+    background-image: url("https://nztech.org.nz/wp-content/uploads/sites/8/2023/02/NewsHomeSlider-Website-Banner-48.png");
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .news_page_wallpaper_title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .news_page_wallpaper_title h1 {
+    font-size: 20px;
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+    border-radius: var(--btn-border-radius);
+  }
+
   .single_coin_about_section p {
     box-sizing: border-box;
     overflow: hidden;
@@ -319,8 +359,8 @@ body {
   }
 
   .search_section {
-    width: 100% !important;
-    margin: 30px 0 0 0 !important;
+    width: 95% !important;
+    margin: 30px auto !important;
   }
 
   .search_input {
@@ -329,9 +369,9 @@ body {
   }
 
   .search_results {
-    width: 80% !important;
+    width: 100% !important;
     padding: 0 !important;
-    margin: 20px auto;
+    margin: 20px 0 0 0 !important;
   }
 
   .mobile_font_smaller {
@@ -470,13 +510,12 @@ body {
 
   .all_news_container {
     box-sizing: border-box;
-    width: 100%;
+    width: 100% !important;
     margin: 0 0 0 0;
-    padding: 0 5px;
   }
 
   .single_news_container {
-    width: 100%;
+    width: 95% !important;
     margin: 0;
     padding: 0;
   }
@@ -500,7 +539,6 @@ body {
   }
 
   .search_results {
-    width: 50% !important;
     padding: 0 !important;
     margin-top: 15px;
   }
@@ -524,21 +562,26 @@ body {
     padding: 0 15px !important;
   }
 
-  .all_news_container {
-    margin: 0;
-  }
-
   .single_news_container {
     width: 100%;
   }
 
   .single_news {
     height: 150px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .single_news h1 {
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 18px;
   }
 
   .single_news_description {
     box-sizing: border-box;
     height: 100%;
+    width: 100% !important;
   }
 
   .searchbar {
@@ -561,7 +604,7 @@ body {
   }
 
   .single_news_description {
-    font-size: 11.5px;
+    /* font-size: 11.5px; */
     width: 250px;
   }
 
@@ -573,6 +616,10 @@ body {
 @media only screen and (min-width: 600px) {
   #market_cap_h5 {
     display: block;
+  }
+
+  .fa-arrow-left {
+    margin: 0 0 0 0 !important;
   }
 
   .navbar_redirections ul {
@@ -589,7 +636,7 @@ body {
   }
 
   .search_results {
-    width: 50% !important;
+    /* width: 50% !important; */
     padding: 0 !important;
     margin-top: 15px;
   }
@@ -597,7 +644,6 @@ body {
   .title_section h1 {
     display: block;
   }
-
 }
 
 @media only screen and (min-width: 250px) and (max-width: 375px) {

@@ -14,6 +14,33 @@
   margin: 0 auto;
 }
 
+.news_page_wallpaper {
+  background-image: url("https://nztech.org.nz/wp-content/uploads/sites/8/2023/02/NewsHomeSlider-Website-Banner-48.png");
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.back_button {
+  padding: 5px;
+}
+
+.news_page_wallpaper_title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news_page_wallpaper_title h1 {
+  text-align: center;
+  font-size: 52px;
+  background-color: black;
+  padding: 20px;
+  border-radius: var(--btn-border-radius);
+}
+
 .single_news_container_skeleton {
   width: 80%;
   margin: 0 auto;
@@ -44,11 +71,14 @@
 }
 
 .single_news {
+  width: 100%;
   box-sizing: border-box;
-  padding: 30px;
   margin-top: 20px;
   background-color: var(--new-container);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   align-items: center;
   border-radius: var(--btn-border-radius);
   box-shadow: 0 0 20px black;
@@ -65,28 +95,14 @@
   padding-left: 20px;
 }
 
-.single_news_description img {
-  float: right;
-  border-radius: 50%;
-}
-
-.single_news_description aside {
-  display: flex;
-  gap: 30px;
-}
-
-.single_news_description aside li {
-  color: var(--main-accent-color-dark);
-}
-
-.single_news_description aside li a:link,
+.single_news a:link,
 a:active,
 a:visited {
   color: var(--main-accent-color-dark);
   text-decoration: none;
 }
 
-.single_news_description aside li a:hover {
+.single_news a:hover {
   color: white;
 }
 
@@ -130,4 +146,3 @@ a:visited {
   align-items: center;
   box-shadow: 0 0 5px black;
 }
-

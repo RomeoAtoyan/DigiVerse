@@ -38,14 +38,14 @@
 
 .search_results {
   box-sizing: border-box;
-  width: 700px;
+  width: 30%;
   border-radius: var(--btn-border-radius);
   display: none;
   flex-direction: column;
   gap: 15px;
   justify-content: space-between;
   padding: 20px;
-  margin-left: 50px ;
+  margin-left: 50px;
 }
 
 .search_result {

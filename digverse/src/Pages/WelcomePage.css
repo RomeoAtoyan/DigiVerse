@@ -46,12 +46,20 @@
 @media only screen and (max-width: 1000px) {
   .intro {
     height: 50vh;
-    align-items: center;
-    justify-content: unset;
+    padding-top: 150px;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: unset !important;
   }
 
   #introtext {
-    padding-top: 150px;
     font-size: 60px;
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (min-width: 250px) and (max-width: 1000px) {
+  #explore_btn {
+    padding: 10px !important;
   }
 }
