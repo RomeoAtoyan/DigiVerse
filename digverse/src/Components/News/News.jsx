@@ -27,7 +27,6 @@ const News = () => {
       );
       const data = await response.json();
       setNews(data);
-      console.log(data);
       setLoading(false);
     } catch (error) {
       console.error(error);
