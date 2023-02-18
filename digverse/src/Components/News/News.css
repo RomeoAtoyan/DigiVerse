@@ -15,7 +15,7 @@
 }
 
 .news_page_wallpaper {
-  background-image: url("https://nztech.org.nz/wp-content/uploads/sites/8/2023/02/NewsHomeSlider-Website-Banner-48.png");
+  background-image: url(../assets/news-page-img.png);
   height: 70vh;
   background-repeat: no-repeat;
   background-size: cover;
