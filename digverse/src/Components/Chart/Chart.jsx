@@ -15,14 +15,14 @@ const Chart = ({ usedId, currency }) => {
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState("1");
 
   const getChartData = async () => {
     try {
       setLoading(true);
       const response = await fetch(
         `https://api.coingecko.com/api/v3/coins/${usedId}/market_chart?vs_currency=${currency}&days=${days}&interval=${
-          days === 1 ? "hourly" : "daily"
+          days === "1" ? "hourly" : "daily"
         }`
       );
       const data = await response.json();
@@ -35,7 +35,8 @@ const Chart = ({ usedId, currency }) => {
   };
 
   const getCurrValue = (e) => {
-    setDays(e.target.value);
+    let selectedDay = e.target.value;
+    setDays(selectedDay);
   };
 
   useEffect(() => {
@@ -71,16 +72,19 @@ const Chart = ({ usedId, currency }) => {
             >
               <Line
                 type="monotone"
-                stroke="green"
+                stroke="aqua"
                 dataKey="1"
                 strokeWidth={0.5}
+                dot={false}
               />
-              <XAxis dataKey={0} />
-              <YAxis />
+              <XAxis tick={{fill:"white"}} dataKey={0} />
+              <YAxis tick={{fill:"white"}} />
               <Tooltip
                 formatter={(value) =>
                   value > 999.99 ? value.toLocaleString() : value
                 }
+                labelStyle={{ color: "white",textAlign:"center" }}
+                contentStyle={{backgroundColor:"var(--new-bg)", color:"white" , border:"none", outline:"none"}}
               />
             </LineChart>
           </ResponsiveContainer>

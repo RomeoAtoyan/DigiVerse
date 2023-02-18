@@ -255,7 +255,7 @@ body {
   justify-content: center !important;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (min-width: 280px) and (max-width: 1000px) {
   .all_container {
     flex-direction: column;
     padding: 0;
@@ -265,7 +265,7 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     overflow: scroll;
-    height: 400px;
+    height: 250px;
     padding: 10px;
     background-color: var(--new-container);
     border-radius: var(--btn-border-radius);
@@ -277,8 +277,21 @@ body {
     height: max-content;
   }
 
-  .navbar_container {
-    padding: 0 15px;
+  .title_section {
+    gap: 0;
+  }
+
+  .single_coin_price_section img {
+    width: 75px !important;
+  }
+
+  .coin_id_price {
+    margin-left: 15px;
+  }
+
+  .coin_id_price h1,
+  .coin_id_price h2 {
+    font-size: 24px !important;
   }
 
   .searchbar {
@@ -350,6 +363,19 @@ body {
     font-size: 12px;
   }
 
+  .navbar_container {
+    padding: 0 10px;
+  }
+
+  .title_section {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .title_section h1 {
+    display: none;
+  }
+
   .navbar_redirections ul {
     display: none;
   }
@@ -415,8 +441,9 @@ body {
   }
 
   .coin_id_top_buttons {
-    width: 80% !important;
-    margin: 0 auto;
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding-top: 20px;
   }
 
   .back_button {
@@ -565,5 +592,21 @@ body {
     width: 50% !important;
     padding: 0 !important;
     margin-top: 15px;
+  }
+
+  .title_section h1 {
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 250px) and (max-width: 375px) {
+  .crypto_price_change {
+    display: none;
+  }
+
+  .price {
+    width: 40%;
+    font-size: medium;
   }
 }
