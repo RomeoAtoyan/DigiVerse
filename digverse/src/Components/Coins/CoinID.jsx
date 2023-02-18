@@ -6,7 +6,6 @@ import Social from "../SocialMedia/Social";
 import RingLoader from "react-spinners/RingLoader";
 import Chart from "../Chart/Chart";
 import Nav from "../Nav/Nav";
-import { supabase } from "../Profile/supabaseClient";
 
 const CoinID = () => {
   const { coinId } = useParams();
@@ -19,7 +18,6 @@ const CoinID = () => {
   const navigate = useNavigate();
 
   //  anchor tags wegdoen van description //
-
   const textDescription = new DOMParser().parseFromString(
     description,
     "text/html"

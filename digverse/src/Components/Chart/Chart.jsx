@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import {
-  CartesianGrid,
-  Legend,
   Line,
   LineChart,
   Tooltip,
@@ -77,14 +75,19 @@ const Chart = ({ usedId, currency }) => {
                 strokeWidth={0.5}
                 dot={false}
               />
-              <XAxis tick={{fill:"white"}} dataKey={0} />
-              <YAxis tick={{fill:"white"}} />
+              <XAxis tick={{ fill: "white" }} dataKey={0} />
+              <YAxis tick={{ fill: "white" }} />
               <Tooltip
                 formatter={(value) =>
                   value > 999.99 ? value.toLocaleString() : value
                 }
-                labelStyle={{ color: "white",textAlign:"center" }}
-                contentStyle={{backgroundColor:"var(--new-bg)", color:"white" , border:"none", outline:"none"}}
+                labelStyle={{ color: "white", textAlign: "center" }}
+                contentStyle={{
+                  backgroundColor: "var(--new-bg)",
+                  color: "white",
+                  border: "none",
+                  outline: "none",
+                }}
               />
             </LineChart>
           </ResponsiveContainer>

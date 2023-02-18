@@ -19,7 +19,7 @@ function App() {
         <Route path="/cryptocurrencies/:coinId" element={<CoinID />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/favorites" element={<Favorites/>}/>
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );

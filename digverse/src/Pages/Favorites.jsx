@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import "./Favorites.css";
 import Nav from "../Components/Nav/Nav";
 import { supabase } from "../Components/Profile/supabaseClient";

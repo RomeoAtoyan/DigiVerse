@@ -1,5 +1,4 @@
 import React from "react";
-import Intro from "../Components/Intro/Intro";
 import "./WelcomePage.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
