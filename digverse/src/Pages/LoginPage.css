@@ -99,7 +99,7 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 1000px) {
+@media only screen and (min-width: 250px) and (max-width: 1000px) {
   .login_container {
     width: 100%;
     margin: 0;
