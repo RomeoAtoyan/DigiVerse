@@ -458,13 +458,13 @@ body {
 
   .hamburger_menu_items {
     position: absolute;
-    width: 200px;
-    height: 60px;
-    top: 50px;
+    left: -10px;
+    width: 70px;
+    height: 200px;
+    top: 45px;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--main-accent-color-dark);
-    background-color: transparent;
+    background-color: var(--new-bg);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -472,6 +472,7 @@ body {
 
   .hamburger_menu_items ul {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
@@ -669,5 +670,29 @@ body {
   .price {
     width: 40%;
     font-size: medium;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (max-height: 820px) and (orientation: landscape) {
+  #market_cap_h5 {
+    width: 30% !important;
+  }
+
+  .crypto_section {
+    width: 80% !important;
+  }
+
+  .widget_section {
+    padding: 0;
+  }
+
+  .all_news_container {
+    width: 100%;
+  }
+
+  .single_news {
+    font-size: small;
+    height: max-content;
+    padding: 10px;
   }
 }

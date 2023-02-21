@@ -10,7 +10,6 @@ const Favorites = () => {
   const [searchFav, setSearchFav] = useState("");
   const [showIcon, setShowIcon] = useState(false);
 
-
   const getFavoriteCrypto = async () => {
     let { data: cryptocurrencies, error } = await supabase
       .from("favorite_crypto")
@@ -58,7 +57,7 @@ const Favorites = () => {
       </div>
       <div className="favorite_coin_container">
         {favorites.length === 0 ? (
-          <h1 style={{textAlign:"center"}}>You have not added any coins</h1>
+          <h1 style={{ textAlign: "center" }}>You have not added any coins</h1>
         ) : (
           <>
             <div className="search_fav_coins">
@@ -92,10 +91,15 @@ const Favorites = () => {
                     <div className="favorite_single_coin">
                       <Link
                         className="link"
-                        target="_blank"
                         to={`/cryptocurrencies/${coin.coinID}`}
                       >
-                        <h1 className={coin.name.length > 8 ? 'smaller_font' : " "}>{coin.name}</h1>
+                        <h1
+                          className={
+                            coin.name.length > 8 ? "smaller_font" : " "
+                          }
+                        >
+                          {coin.name}
+                        </h1>
                       </Link>
                       <img src={coin.image} width="60px" alt="" srcSet="" />
                       {showIcon && (

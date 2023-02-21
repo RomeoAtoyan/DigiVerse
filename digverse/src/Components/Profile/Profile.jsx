@@ -13,9 +13,9 @@ const Succes = () => {
   useEffect(() => {
     const getUserData = async () => {
       setLoading(true);
-      await supabase.auth.getUser().then((value) => {
-        if (value.data?.user) {
-          setUser(value.data?.user);
+      await supabase.auth.getUser().then((user) => {
+        if (user?.data?.user) {
+          setUser(user?.data?.user);
           setLoading(false);
         }
       });
@@ -25,11 +25,9 @@ const Succes = () => {
 
   const signOutUser = async () => {
     await supabase.auth.signOut();
-    localStorage.removeItem("User_Status");
-    navigate("/");
+    // localStorage.removeItem("User_Status");
+    navigate("/cryptocurrencies");
   };
-
-  
 
   const continueTo = () => {
     navigate("/cryptocurrencies");
@@ -71,22 +69,6 @@ const Succes = () => {
               </button>
             </>
           )}
-          {/* {Object.keys(user).length !== 0 ? (
-        <>
-          <h1 id="succes">Succesfully logged in</h1>
-          <h1>Signed in as {user?.email}</h1>
-          <h2> via {user?.app_metadata?.provider}</h2>
-          <button onClick={signOutUser}>sign out</button>
-          <button onClick={continueTo} id="continue">
-            Continue to DigiVerse
-          </button>
-        </>
-      ) : (
-        <>
-          <h1>You are not logged in</h1>
-          <button onClick={() => navigate("/login")}>Go to Login page</button>
-        </>
-      )} */}
         </div>
       )}
     </>

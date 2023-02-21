@@ -28,9 +28,10 @@ const Login = () => {
     supabase.auth.onAuthStateChange(async (event) => {
       if (event === "SIGNED_IN") {
         const userData = await supabase.auth.getUser();
-        localStorage.setItem("User_Status", JSON.stringify(userData.data.user));
+        // localStorage.setItem("User_Status", JSON.stringify(userData.data.user));
         setUser(userData);
-        navigate("/profile");
+        console.log(userData);
+        navigate("/cryptocurrencies");
       } else {
         navigate("/");
       }

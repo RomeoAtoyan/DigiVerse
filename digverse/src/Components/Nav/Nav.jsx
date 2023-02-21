@@ -2,37 +2,54 @@ import React, { useEffect, useState } from "react";
 import "./Nav.css";
 import digiLogo from "../assets/D-logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
-// you can add a useEffect and in there get the localStorage user
-
-//dont forget you have to convert string to object => JSON.parse
+import { supabase } from "../Profile/supabaseClient";
 
 const Nav = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  useEffect(() => {
-    const localUser = localStorage.getItem("User_Status");
-    if (localUser) {
-      try {
-        const parsedUser = JSON.parse(localUser);
-        setUser(parsedUser);
-      } catch (error) {
-        if (localUser === "SIGNED_IN") {
-          navigate("/");
-          console.table(localUser);
-        } else {
-          console.error(error);
-        }
-      }
+  // useEffect(() => {
+  //   const localUser = localStorage.getItem("User_Status");
+  //   if (localUser) {
+  //     try {
+  //       const parsedUser = JSON.parse(localUser);
+  //       setUser(parsedUser);
+  //     } catch (error) {
+  //       if (localUser === "SIGNED_IN") {
+  //         navigate("/");
+  //         console.table(localUser);
+  //       } else {
+  //         console.error(error);
+  //       }
+  //     }
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   const session = supabase.auth.getSession();
+  //   if(session) {
+  //     setUser(session);
+  //     console.log(session)
+  //   }
+  // },[])
+
+  const checkUser = async () => {
+    const user = await supabase.auth.getSession();
+    if (user) {
+      console.log(user.data.session.user);
+      setUser(user.data.session.user);
+    } else {
+      console.log("User is not logged in");
     }
+  };
+
+  useEffect(() => {
+    checkUser();
   }, []);
 
   const hamburgerMenuToggle = () => {
     setToggleMenu(!toggleMenu);
-    // const menuIcon = document.querySelector(".hamburger_menu i");
-    // menuIcon.classList.toggle("fa-bars");
-    // menuIcon.classList.toggle("fa-times");
   };
 
   return (
