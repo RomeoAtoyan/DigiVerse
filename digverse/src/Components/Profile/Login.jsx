@@ -30,7 +30,6 @@ const Login = () => {
         const userData = await supabase.auth.getUser();
         // localStorage.setItem("User_Status", JSON.stringify(userData.data.user));
         setUser(userData);
-        console.log(userData);
         navigate("/cryptocurrencies");
       } else {
         navigate("/");

@@ -37,7 +37,6 @@ const Nav = () => {
   const checkUser = async () => {
     const user = await supabase.auth.getSession();
     if (user) {
-      console.log(user.data.session.user);
       setUser(user.data.session.user);
     } else {
       console.log("User is not logged in");
