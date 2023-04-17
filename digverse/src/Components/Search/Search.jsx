@@ -60,8 +60,8 @@ const Search = () => {
           {searchedCoin.map((coin) => (
             <Link
               className="search_results_link"
-              to={`/cryptocurrencies/${coin.id}`}
-              key={coin.id}
+              to={`/cryptocurrencies/${coin?.id}`}
+              key={coin?.id}
             >
               {loading ? (
                 <div className="search_results">
@@ -69,9 +69,9 @@ const Search = () => {
                 </div>
               ) : (
                 <div className="search_result">
-                  <img src={coin.large} alt="" srcSet="" />
+                  <img src={coin?.large} alt="" srcSet="" />
                   <h3>
-                    {coin.name} <span>#{coin?.market_cap_rank}</span>
+                    {coin?.name} <span>#{coin?.market_cap_rank}</span>
                   </h3>
                 </div>
               )}

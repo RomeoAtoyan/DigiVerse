@@ -9,31 +9,6 @@ const Nav = () => {
   const [user, setUser] = useState({});
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  // useEffect(() => {
-  //   const localUser = localStorage.getItem("User_Status");
-  //   if (localUser) {
-  //     try {
-  //       const parsedUser = JSON.parse(localUser);
-  //       setUser(parsedUser);
-  //     } catch (error) {
-  //       if (localUser === "SIGNED_IN") {
-  //         navigate("/");
-  //         console.table(localUser);
-  //       } else {
-  //         console.error(error);
-  //       }
-  //     }
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const session = supabase.auth.getSession();
-  //   if(session) {
-  //     setUser(session);
-  //     console.log(session)
-  //   }
-  // },[])
-
   const checkUser = async () => {
     const user = await supabase.auth.getSession();
     if (user) {
