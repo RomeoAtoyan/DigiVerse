@@ -55,7 +55,7 @@ const Favorites = () => {
           {favorites.length === 1 ? "Favorite Coin" : "Favorite Coins"}
         </h3>
       </div>
-      <div className="favorite_coin_container">
+      <div className="favorite_coin_container animate__animated animate__fadeIn">
         {favorites.length === 0 ? (
           <h1 style={{ textAlign: "center" }}>You have not added any coins</h1>
         ) : (

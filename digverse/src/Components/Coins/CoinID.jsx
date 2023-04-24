@@ -84,7 +84,7 @@ const CoinID = () => {
         </div>
       ) : (
         <div className="general_container">
-          <div className="single_coin_id_chart">
+          <div className="single_coin_id_chart animate__animated animate__fadeIn">
             <h1>
               {coin.name} <span id="coin_rank">#{coin.coingecko_rank}</span>
             </h1>
@@ -124,7 +124,7 @@ const CoinID = () => {
           {loading ? (
             <RingLoader color="aqua" />
           ) : (
-            <div className="trending_coin_container">
+            <div className="trending_coin_container animate__animated animate__fadeInRight">
               <div className="trending_coin">
                 <h1>Trending Coins</h1>
                 {trendCoin.map((trend) => (

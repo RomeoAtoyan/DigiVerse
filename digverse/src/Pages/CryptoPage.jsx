@@ -7,6 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Search from "../Components/Search/Search";
 import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "../Components/Nav/Nav";
+import 'animate.css';
 
 const CryptoPage = () => {
   const [crypto, setCrypto] = useState([]);
@@ -88,7 +89,7 @@ const CryptoPage = () => {
         </main>
       ) : (
         <main className="all_container">
-          <aside className="crypto_section">
+          <aside className="crypto_section animate__animated animate__fadeInUp">
             <div className="select_preferences">
               <select
                 onChange={getResultValue}

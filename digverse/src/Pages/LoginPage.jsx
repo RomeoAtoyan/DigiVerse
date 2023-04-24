@@ -19,7 +19,7 @@ const ProfilePage = () => {
           <img src={moon} alt="" id="moon" srcset="" />
           <img src={rocket} alt="" id="rocket" srcset="" />
         </div>
-        <div className="login_container_supabase">
+        <div className="login_container_supabase animate__animated animate__fadeInUp">
           <h1>Log in or Register</h1>
           <Login />
         </div>

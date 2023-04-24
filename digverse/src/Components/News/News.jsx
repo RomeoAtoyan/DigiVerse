@@ -48,7 +48,7 @@ const News = () => {
           </div>
         </section>
       ) : (
-        <section className="all_news_container">
+        <section className="all_news_container animate__animated animate__fadeInRight">
           <div className="single_news_container">
             {news.slice(0, 15).map((art, index) => (
               <div className="single_news" key={index}>
