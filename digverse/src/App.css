@@ -5,9 +5,6 @@
   transition: all 0.1s ease-in;
 }
 
-
-
-
 :root {
   --main-bg-color-dark: #11011e;
   --new-bg: #121212;
@@ -24,6 +21,7 @@ body {
   color: var(--main-text-color-dark);
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 button.c-kdzhTC-fsSXPQ-color-primary {
   background-color: var(--main-accent-color-dark);
