@@ -13,7 +13,7 @@ const Chart = ({ usedId, currency }) => {
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
-  const [days, setDays] = useState("1");
+  const [days, setDays] = useState("7");
 
   const getChartData = async () => {
     try {
