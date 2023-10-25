@@ -463,13 +463,16 @@ body {
   .hamburger_menu_items {
     position: absolute;
     left: -10px;
-    width: 70px;
+    width: 100vw;
     height: 100px;
     top: 45px;
     padding: 5px;
     background-color: var(--new-bg);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    transition: 1s ease-in-out;
+    border-top: 2px solid aquamarine;
+    box-shadow: 0 0 10px black;
   }
 
   .hamburger_menu_items ul {

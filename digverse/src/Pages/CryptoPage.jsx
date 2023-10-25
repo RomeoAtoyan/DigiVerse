@@ -7,7 +7,9 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Search from "../Components/Search/Search";
 import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "../Components/Nav/Nav";
-import 'animate.css';
+import "animate.css";
+import Video from "../Components/Video/Video";
+import cryptovideo from "../Components/Video/cryptovideo.mp4";
 
 const CryptoPage = () => {
   const [crypto, setCrypto] = useState([]);
@@ -75,11 +77,7 @@ const CryptoPage = () => {
   return (
     <>
       <Nav />
-      <div className="intro_background_image">
-        Welcome to the thrilling world of cryptocurrency, where decentralized
-        technologies are disrupting the traditional financial system and opening
-        up new avenues for innovation and investment
-      </div>
+      <Video src={cryptovideo} />
       <Search />
       {loading ? (
         <main className="all_container_skeleton">

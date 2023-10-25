@@ -8,7 +8,7 @@ const Nav = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  const [menuHeight, setMenuHeight] = useState(0);
   const checkUser = async () => {
     const user = await supabase.auth.getSession();
     if (user) {
@@ -24,6 +24,7 @@ const Nav = () => {
 
   const hamburgerMenuToggle = () => {
     setToggleMenu(!toggleMenu);
+    menuHeight === 0 && setMenuHeight("100px");
   };
 
   return (
@@ -35,7 +36,10 @@ const Nav = () => {
             className={`fa-solid ${toggleMenu ? "fa-times" : "fa-bars"} fa-2x`}
           ></i>
           {toggleMenu ? (
-            <div className="hamburger_menu_items">
+            <div
+              style={{ height: menuHeight }}
+              className="hamburger_menu_items"
+            >
               <ul>
                 <li>
                   <NavLink to="/cryptocurrencies">Crypto</NavLink>
