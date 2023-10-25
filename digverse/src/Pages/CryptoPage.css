@@ -464,7 +464,6 @@ body {
     position: absolute;
     left: -10px;
     width: 100vw;
-    height: 100px;
     top: 45px;
     background-color: var(--new-bg);
     backdrop-filter: blur(5px);
