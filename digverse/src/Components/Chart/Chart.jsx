@@ -19,9 +19,7 @@ const Chart = ({ usedId, currency }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${usedId}/market_chart?vs_currency=${currency}&days=${days}&interval=${
-          days === "1" ? "hourly" : "daily"
-        }`
+        `https://api.coingecko.com/api/v3/coins/${usedId}/market_chart?vs_currency=${currency}&days=${days}&interval=${"daily"}`
       );
       const data = await response.json();
       setChartData(data);
@@ -44,7 +42,6 @@ const Chart = ({ usedId, currency }) => {
   return (
     <>
       <select onChange={getCurrValue} id="currencyResult3">
-        <option value="1">24 hours</option>
         <option value="7">7 days</option>
         <option value="14">14 days</option>
         <option value="30">30 days</option>
