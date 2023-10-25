@@ -43,6 +43,17 @@
   opacity: 0%;
 }
 
+@media screen and (max-width: 500px) {
+  #introtext {
+    font-size: 60px !important;
+  }
+
+  #explore_btn {
+    width: 150px !important;
+    height: 60px !important;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .intro {
     height: 50vh;
