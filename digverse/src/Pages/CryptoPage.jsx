@@ -10,6 +10,7 @@ import Nav from "../Components/Nav/Nav";
 import "animate.css";
 import Video from "../Components/Video/Video";
 import cryptovideo from "../Components/Video/cryptovideo.mp4";
+import { currencies, resultsPerPage } from "../DropdownOptions/Options";
 
 const CryptoPage = () => {
   const [crypto, setCrypto] = useState([]);
@@ -95,19 +96,20 @@ const CryptoPage = () => {
                 id="result_per_page"
                 name="resultPP"
               >
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="75">75</option>
-                <option value="100">100</option>
+                {resultsPerPage.map((item, index) => (
+                  <option key={index} value={item.value}>
+                    {item.content}
+                  </option>
+                ))}
               </select>
               <select
                 onChange={getCurrValue}
                 value={selectedValue}
                 id="currencyResult"
               >
-                <option value="eur">EUR</option>
-                <option value="usd">USD</option>
-                <option value="gbp">GBP</option>
+                {currencies.map((currency, index) => (
+                  <option value={currency.value}>{currency.content}</option>
+                ))}
               </select>
             </div>
             <Template setCrypto={setCrypto} crypto={crypto} />
