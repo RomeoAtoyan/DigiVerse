@@ -6,6 +6,7 @@ import Social from "../SocialMedia/Social";
 import RingLoader from "react-spinners/RingLoader";
 import Chart from "../Chart/Chart";
 import Nav from "../Nav/Nav";
+import { currencies } from "../../DropdownOptions/Options";
 
 const CoinID = () => {
   const { coinId } = useParams();
@@ -67,15 +68,20 @@ const CoinID = () => {
     getTrendingCoin();
   }, []);
 
+  const whichCurrency =
+    currency === "eur" ? " €" : currency === "usd" ? " $" : " £";
+
   return (
     <>
       <Nav />
       <div className="coin_id_top_buttons">
         <BackButton page={"/cryptocurrencies"} />
         <select onChange={getCurrValue} id="currencyResult2">
-          <option value="eur">EUR</option>
-          <option value="usd">USD</option>
-          <option value="gbp">GBP</option>
+          {currencies.map((item, index) => (
+            <option key={index} value={item.value}>
+              {item.content}
+            </option>
+          ))}
         </select>
       </div>
       {loading ? (
@@ -85,9 +91,25 @@ const CoinID = () => {
       ) : (
         <div className="general_container">
           <div className="single_coin_id_chart animate__animated animate__fadeIn">
-            <h1>
-              {coin.name} <span id="coin_rank">#{coin.coingecko_rank}</span>
-            </h1>
+            <div className="price__info">
+              <h1>
+                {coin.name} <span id="coin_rank">#{coin.coingecko_rank}</span>{" "}
+              </h1>
+              <div className="low_high prices__ups__downs">
+                <span className="coin_lowest">
+                  {coin.market_data?.low_24h[currency] > 999.99
+                    ? coin.market_data?.low_24h[currency].toLocaleString()
+                    : coin.market_data?.low_24h[currency]}
+                  {whichCurrency}
+                </span>
+                <span className="coin_highest">
+                  {coin.market_data?.high_24h[currency] > 999.99
+                    ? coin.market_data?.high_24h[currency].toLocaleString()
+                    : coin.market_data?.high_24h[currency]}
+                  {whichCurrency}
+                </span>
+              </div>
+            </div>
             <div className="single_coin_price_section">
               <img src={coin?.image?.large} alt="" />
               <div className="coin_id_price">
@@ -142,34 +164,6 @@ const CoinID = () => {
           )}
         </div>
       )}
-
-      <div className="single_coin_about_section">
-        <br />
-        <div className="low_high">
-          <span>
-            Today's Low :{" "}
-            {coin.market_data?.low_24h[currency] > 999.99
-              ? coin.market_data?.low_24h[currency].toLocaleString()
-              : coin.market_data?.low_24h[currency]}
-            {currency === "eur" ? " €" : currency === "usd" ? " $" : " £"}
-          </span>
-          <span>
-            Today's High :{" "}
-            {coin.market_data?.high_24h[currency] > 999.99
-              ? coin.market_data?.high_24h[currency].toLocaleString()
-              : coin.market_data?.high_24h[currency]}
-            {currency === "eur" ? " €" : currency === "usd" ? " $" : " £"}
-          </span>
-        </div>
-        <br />
-        <p>{textDescription}</p>
-        <br />
-        <a target="_blank" href={coin?.links?.homepage[0]} rel="noreferrer">
-          <p>Official homepage of {coin.name}</p>
-        </a>
-        <br />
-        <Social coin={coin} />
-      </div>
     </>
   );
 };

@@ -9,6 +9,17 @@
   padding: 20px;
 }
 
+.price__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prices__ups__downs {
+  display: flex;
+  gap: 1em;
+}
+
 .general_container_skeleton {
   box-sizing: border-box;
   width: 80%;
@@ -94,6 +105,7 @@
   width: 30%;
   height: 100%;
   border-radius: var(--btn-border-radius);
+  padding-bottom: 2em;
 }
 
 .trending_coin {
@@ -270,12 +282,6 @@
   color: var(--main-text-color);
 }
 
-.low_high {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .low_high span:first-child {
   color: #ff4500;
   width: max-content;
@@ -366,4 +372,3 @@
     margin: 0 auto !important;
   }
 }
- 
