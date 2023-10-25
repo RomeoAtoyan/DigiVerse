@@ -86,9 +86,9 @@ const Favorites = () => {
             >
               {favorites
                 .filter((coin) => coin.name.toLowerCase().includes(searchFav))
-                .map((coin) => (
+                .map((coin, index) => (
                   <>
-                    <div className="favorite_single_coin">
+                    <div key={index} className="favorite_single_coin">
                       <Link
                         className="link"
                         to={`/cryptocurrencies/${coin.coinID}`}

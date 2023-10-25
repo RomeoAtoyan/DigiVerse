@@ -1,13 +1,16 @@
 import React from "react";
 import SingleCoin from "./SingleCoin.jsx";
-import { Link } from "react-router-dom";
 
 const Coin = (props) => {
   return (
     <>
-      {props.crypto.map((crypto) => {
+      {props.crypto.map((crypto, index) => {
         return (
-            <SingleCoin crypto={crypto} currencySymbol={props.currencySymbol} />
+          <SingleCoin
+            key={index}
+            crypto={crypto}
+            currencySymbol={props.currencySymbol}
+          />
         );
       })}
     </>

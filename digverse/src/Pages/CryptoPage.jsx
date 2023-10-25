@@ -108,7 +108,7 @@ const CryptoPage = () => {
                 id="currencyResult"
               >
                 {currencies.map((currency, index) => (
-                  <option value={currency.value}>{currency.content}</option>
+                  <option key={index} value={currency.value}>{currency.content}</option>
                 ))}
               </select>
             </div>

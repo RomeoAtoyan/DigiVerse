@@ -149,8 +149,9 @@ const CoinID = () => {
             <div className="trending_coin_container animate__animated animate__fadeInRight">
               <div className="trending_coin">
                 <h1>Trending Coins</h1>
-                {trendCoin.map((trend) => (
+                {trendCoin.map((trend, index) => (
                   <div
+                    key={index}
                     className="trend"
                     onClick={() => getSingleCoin(trend.item.id)}
                     key={trend.item.id}
